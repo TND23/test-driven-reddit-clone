@@ -1,0 +1,31 @@
+<h2>Create Link</h2>
+<form action="<%= links_url %>" method="post">
+
+  <label for="link_title">Title: </label>
+  <input name="link[title]" id="link_title" type="text" value="">
+  <br>
+
+  <label for="link_url">URL: </label>
+  <input name="link[url]" id="link_url" type="text" value="">
+  <br>
+
+  <label for="link_content">Content: </label>
+  <input name="link[content]" id="link_content" type="text" value="">
+  <br>
+
+	<% Sub.all.each do |sub| %>
+	  <input type="checkbox"
+		name="link[subs][]"
+		id="<%="link_subs_#{sub.name}"%>"
+		value="<%= sub.id %>"
+		>
+
+	  <label for="<%="link_subs_#{sub.name}"%>"> <%="link_subs_#{sub.name}"%></label>
+	  <br>
+	<% end %>
+
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <input type="submit" value="Crate link">
+</form>

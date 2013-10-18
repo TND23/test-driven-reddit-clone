@@ -1,0 +1,5 @@
+<h1>Welcome to the <%= @sub.name%> sub!!!!</h1>
+
+<% if current_user.id == @sub.moderator_id %>
+	<%= link_to "Edit", edit_sub_url(@sub)%>
+<% end %>

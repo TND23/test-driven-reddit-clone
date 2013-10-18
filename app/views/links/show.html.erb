@@ -1,0 +1,11 @@
+<h2><%= @link.title %></h2>
+
+Link URL <%= @link.url %>
+<br>
+Link Content <%= @link.content %>
+<br>
+User <%= User.find(@link.user_id).user_name %>
+<br>
+Link subs <% @link.subs.each do |sub| %>
+	<li><%= sub.name %></li>
+<% end %>
